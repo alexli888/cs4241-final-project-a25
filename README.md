@@ -17,7 +17,7 @@ General description of the project:
 - Use some form of auth to track each player, each users, progress (# of puzzles solved?)
 - 4x4 puzzle is solvable if:
     - The blank is on an even row from the bottom ,and inversions are odd, or
-    - The blank is on an odd row from the bottom, and inversions are even.
+    - The blank is on an odd row from the bottom, and inversions are even. 
 
 
 **Key technologies/libraries we plan on using (e.g. React, Three.js, Svelte, TypeScript, etc.).**
