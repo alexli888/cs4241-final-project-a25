@@ -4,7 +4,7 @@ For your final project, you'll implement a web application that exhibits underst
 
 ### Proposal (Due Tuesday, September 30, 11:59 pm) 
 
-**Team Members: Eric Li, Alex Li, Rayyan Syed**
+**Team Members: Eric Li, Alex Li, Rayyan Syed, Joshua Solomon, Guillermo Wiandt**
 
 General description of the project: 
 - Sliding Tile Puzzle Game 
@@ -24,4 +24,13 @@ MongoDb
 Node
 Express
 HTML/CSS/JS
+
+Plan: 
+Next Week (0ct 6-10): 
+Oct 6: Start project. Initialize frontend & Backend components, research canvas components for the game
+Oct 7: Meet during the class time Next Tuesday (No class, but work on proj) to work on project. Get a significant portion done
+Oct 8: Work some more on the project
+Oct 9: Make a video demo for submission
+Oct 10: Meet before class? Or just present, and final touches after
+DONE!!!!!!!!!!!!!
 
