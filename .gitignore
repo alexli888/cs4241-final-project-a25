@@ -1,0 +1,10 @@
+node_modules/
+dist/
+/client/node_modules/
+/server/node_modules/
+.env
+.env.local
+*.log
+coverage/
+/.idea
+/.vscode
