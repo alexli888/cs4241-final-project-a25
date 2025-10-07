@@ -6,7 +6,6 @@ export default defineConfig({
     server: {
         allowedHosts: [
             'localhost',
-            'cs4241-final-project-a25-41s7.onrender.com',
             '.onrender.com' // Allow all Render.com subdomains
         ],
         proxy: {
