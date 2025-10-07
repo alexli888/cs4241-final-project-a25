@@ -1,6 +1,8 @@
 # Sliding Tile Puzzle
 # Deployed at: https://cs4241-final-project-a25.onrender.com/
-We created a 4x4 sliding tile puzzle game with user authentication, auto-solver, and progress/leaderboard tracking. This game is commonly known as 'The Fifteen Puzzle', where the goal is for you to rearrange all the tiles in the order of increasing number (e.g. 1 2 3 4), while having an empty tile at the bottom right corner. A visual below highlights it clearly: 
+We created a 4x4 sliding tile puzzle game with user authentication, auto-solver, and progress/leaderboard tracking. This game is commonly known as 'The Fifteen Puzzle', where the goal is for you to rearrange all the tiles in the order of increasing number (e.g. 1 2 3 4), while having an empty tile at the bottom right corner. This project was challenging in the sense of it is game development. We had to understand the game to a very solid level to begin developing it, and debugging throughout the process took significiant amount of time. We also, in addition to integrating the game, took extra time to add secure authentication with hashing of passwords, as well as full backend connectivity with a MongoDB cluster. Overall, we achieved a very accessible, secure website with frontend -> backend functionality that serves the purpose of a mind game. As such, we believe that such a commitment deserves a 100%. 
+
+The image below highlights the game clearly: 
 
 <img width="210" height="207" alt="image" src="https://github.com/user-attachments/assets/abdaaa47-e6d4-4009-b578-18abc755dfe6" />
 
@@ -51,9 +53,5 @@ For logging into the project, you can just make a new account, or enter your exi
 ## Guillermo Wiandt: 
 -
 
-What accessibility features you included in your project.
-Think of 1, 3, and 4 in particular in a similar vein to the design / technical achievements for A1—A4. Make a case for why what you did was challenging and why your implementation deserves a grade of 100%.
-
-The video described above is also due on Canvas at this time.
 
 
