@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import SlidingPuzzle from './components/SlidingPuzzle'
 import Leaderboard from './components/Leaderboard'
+import Rules from './components/HowToPlay'
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'))
     const [user, setUser] = useState(null)
     const [activeTab, setActiveTab] = useState('game')
+    const [showRules, setShowRules] = useState(false)
 
     useEffect(() => {
         if (token) {
@@ -83,7 +85,16 @@ function App() {
 
     return (
         <div className="app">
-            <h1>Sliding Puzzle Challenge</h1>
+            <header className="topbar">
+                <div className="brand">
+                    <img src="/vite.svg" alt="" width="28" height="28" />
+                    <h1>Sliding Puzzle Challenge</h1>
+        </div>
+        <div className="instructions">
+          <button className="btn" onClick={() => setShowRules(true)}>How to Play</button>
+        </div>
+      </header>
+        <Rules open={showRules} onClose={() => setShowRules(false)} />
             {!token && (
                 <div className="auth">
                     <form onSubmit={register}>
