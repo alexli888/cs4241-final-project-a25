@@ -25,7 +25,7 @@ For logging into the project, you can just make a new account, or enter your exi
 - Popup explaining rules of the puzzle/how to solve it
 
 # What each group member was responsible for designing/developing
-Eric Li: 
+## Eric Li: 
 - Team management
 - Defined project structure
 - Developed starter code for the client and server
@@ -33,18 +33,22 @@ Eric Li:
 - Assisted in debugging deployment to Render
 - README updates
 - Recording
-Alex Li:
+  
+## Alex Li:
 - Team management
 - Integrated backend functionality with MongoDB w/ user auth
 - Developed autosolver functionality to the puzzle
 - Developed leaderboard functionality
 - README updates
-- Recording 
-Joshua Solomon:
+- Recording
+  
+## Joshua Solomon:
 - 
-Rayyan Syed:
+
+## Rayyan Syed:
 - 
-Guillermo Wiandt: 
+
+## Guillermo Wiandt: 
 -
 
 What accessibility features you included in your project.
