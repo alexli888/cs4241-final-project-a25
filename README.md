@@ -1,6 +1,7 @@
 # Sliding Tile Puzzle
 # Deployed at: https://cs4241-final-project-a25.onrender.com/
 We created a 4x4 sliding tile puzzle game with user authentication, auto-solver, and progress/leaderboard tracking. This game is commonly known as 'The Fifteen Puzzle', where the goal is for you to rearrange all the tiles in the order of increasing number (e.g. 1 2 3 4), while having an empty tile at the bottom right corner. A visual below highlights it clearly: 
+
 <img width="210" height="207" alt="image" src="https://github.com/user-attachments/assets/abdaaa47-e6d4-4009-b578-18abc755dfe6" />
 
 
