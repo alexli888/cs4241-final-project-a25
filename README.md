@@ -2,6 +2,8 @@
 
 A 4x4 sliding tile puzzle game with user authentication and progress tracking.
 
+Deployed at: https://cs4241-final-project-a25.onrender.com/
+
 ## Structure
 - **server**: Express + MongoDB backend with JWT authentication
 - **client**: Vite + React frontend
