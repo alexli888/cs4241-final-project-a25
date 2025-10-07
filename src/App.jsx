@@ -87,14 +87,13 @@ function App() {
         <div className="app">
             <header className="topbar">
                 <div className="brand">
-                    <img src="/vite.svg" alt="" width="28" height="28" />
                     <h1>Sliding Puzzle Challenge</h1>
-        </div>
-        <div className="instructions">
-          <button className="btn" onClick={() => setShowRules(true)}>How to Play</button>
-        </div>
-      </header>
-        <Rules open={showRules} onClose={() => setShowRules(false)} />
+                </div>
+                <div className="instructions">
+                    <button className="btn" onClick={() => setShowRules(true)}>How to Play</button>
+                </div>
+            </header>
+            <Rules open={showRules} onClose={() => setShowRules(false)} />
             {!token && (
                 <div className="auth">
                     <form onSubmit={register}>
@@ -123,15 +122,15 @@ function App() {
                         </div>
                         <button onClick={() => { setToken(null); localStorage.removeItem('token'); setUser(null) }}>Logout</button>
                     </div>
-                    
+
                     <div className="tabs">
-                        <button 
+                        <button
                             className={activeTab === 'game' ? 'active' : ''}
                             onClick={() => setActiveTab('game')}
                         >
                             Play Game
                         </button>
-                        <button 
+                        <button
                             className={activeTab === 'leaderboard' ? 'active' : ''}
                             onClick={() => setActiveTab('leaderboard')}
                         >
@@ -141,8 +140,8 @@ function App() {
 
                     <div className="tab-content">
                         {activeTab === 'game' && (
-                            <SlidingPuzzle 
-                                token={token} 
+                            <SlidingPuzzle
+                                token={token}
                                 onSolved={async (moves, timeSpent) => {
                                     try {
                                         await fetch('/api/progress/solved', {
@@ -153,30 +152,30 @@ function App() {
                                             },
                                             body: JSON.stringify({ moves, timeSpent })
                                         });
-                                        
+
                                         // Refresh user data
                                         const r = await fetch('/api/progress', {
                                             headers: { Authorization: `Bearer ${token}` }
                                         });
                                         const data = await r.json();
                                         setUser(data.user);
-                                        
+
                                         alert(`Puzzle solved in ${moves} moves! 🎉`);
-                                    } catch (e) { 
+                                    } catch (e) {
                                         console.error(e);
                                         alert('Error saving progress');
                                     }
-                                }} 
+                                }}
                             />
                         )}
-                        
+
                         {activeTab === 'leaderboard' && (
                             <Leaderboard token={token} />
                         )}
                     </div>
                 </div>
             )}
-            
+
             <style>{`
                 .app {
                     max-width: 900px;

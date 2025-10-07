@@ -1,5 +1,3 @@
-import react from 'react';
-
 export default function Rules({ open, onClose }) {
   if (!open) return null
   return (
