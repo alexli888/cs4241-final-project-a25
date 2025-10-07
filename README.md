@@ -54,4 +54,8 @@ For logging into the project, you can just make a new account, or enter your exi
 -
 
 
+External Sources: 
+https://github.com/technogeek00/NPuzzleSolver 
+
+-> Used for inspiration in developing our algorithm for the 15 Puzzle Game. 
 
