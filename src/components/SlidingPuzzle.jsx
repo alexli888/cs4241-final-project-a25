@@ -19,10 +19,15 @@ function shuffled() {
 
 export default function SlidingPuzzle({ token, api, onSolved }) {
     const [tiles, setTiles] = useState(shuffled())
+    const [moves, setMoves] = useState(0)
+    const [startTime, setStartTime] = useState(Date.now())
+    const [gameActive, setGameActive] = useState(true)
     const size = 4
 
     useEffect(() => {
         function onKey(e) {
+            if (!gameActive) return
+            
             const idx = tiles.indexOf(0)
             const row = Math.floor(idx / size)
             const col = idx % size
@@ -35,25 +40,87 @@ export default function SlidingPuzzle({ token, api, onSolved }) {
                 const next = tiles.slice()
                     ;[next[idx], next[target]] = [next[target], next[idx]]
                 setTiles(next)
-                if (isSolved(next)) onSolved && onSolved()
+                setMoves(prev => prev + 1)
+                
+                if (isSolved(next)) {
+                    setGameActive(false)
+                    const timeSpent = Math.floor((Date.now() - startTime) / 1000)
+                    onSolved && onSolved(moves + 1, timeSpent)
+                }
             }
         }
         window.addEventListener('keydown', onKey)
         return () => window.removeEventListener('keydown', onKey)
-    }, [tiles])
+    }, [tiles, gameActive, moves, startTime, onSolved])
+
+    function handleShuffle() {
+        setTiles(shuffled())
+        setMoves(0)
+        setStartTime(Date.now())
+        setGameActive(true)
+    }
+
+    function handleTileClick(index) {
+        if (!gameActive) return
+        
+        const emptyIndex = tiles.indexOf(0)
+        const row = Math.floor(index / size)
+        const col = index % size
+        const emptyRow = Math.floor(emptyIndex / size)
+        const emptyCol = emptyIndex % size
+        
+        // Check if tile is adjacent to empty space
+        const isAdjacent = (Math.abs(row - emptyRow) === 1 && col === emptyCol) ||
+                          (Math.abs(col - emptyCol) === 1 && row === emptyRow)
+        
+        if (isAdjacent) {
+            const next = tiles.slice()
+                ;[next[index], next[emptyIndex]] = [next[emptyIndex], next[index]]
+            setTiles(next)
+            setMoves(prev => prev + 1)
+            
+            if (isSolved(next)) {
+                setGameActive(false)
+                const timeSpent = Math.floor((Date.now() - startTime) / 1000)
+                onSolved && onSolved(moves + 1, timeSpent)
+            }
+        }
+    }
 
     return (
         <div className="puzzle">
+            <div className="game-info">
+                <div>Moves: {moves}</div>
+                <div>Status: {gameActive ? 'Playing' : 'Solved!'}</div>
+            </div>
             {tiles.map((t, i) => (
-                <div key={i} className={`tile ${t === 0 ? 'empty' : ''}`}>{t === 0 ? '' : t}</div>
+                <div 
+                    key={i} 
+                    className={`tile ${t === 0 ? 'empty' : ''} ${gameActive ? 'clickable' : ''}`}
+                    onClick={() => handleTileClick(i)}
+                >
+                    {t === 0 ? '' : t}
+                </div>
             ))}
             <div className="controls">
-                <button onClick={() => setTiles(shuffled())}>Shuffle</button>
+                <button onClick={handleShuffle}>Shuffle Puzzle</button>
             </div>
             <style>{`
-        .puzzle{ display:grid; grid-template-columns: repeat(${size}, 60px); gap:6px; margin-top:12px }
-        .tile{ width:60px; height:60px; display:flex; align-items:center; justify-content:center; background:#eee; border-radius:6px }
+        .puzzle{ 
+            display:grid; 
+            grid-template-columns: repeat(${size}, 60px); 
+            gap:6px; 
+            margin: 20px auto; 
+            justify-content: center;
+            max-width: fit-content;
+        }
+        .game-info{ grid-column: 1 / -1; display: flex; justify-content: space-between; padding: 8px; background: #f0f0f0; border-radius: 4px; margin-bottom: 8px; font-weight: bold; }
+        .tile{ width:60px; height:60px; display:flex; align-items:center; justify-content:center; background:#eee; border-radius:6px; font-weight: bold; font-size: 18px; }
         .tile.empty{ background:transparent }
+        .tile.clickable:not(.empty):hover{ background:#ddd; cursor:pointer; }
+        .controls{ grid-column: 1 / -1; margin-top: 8px; text-align: center; }
+        .controls button{ padding: 8px 16px; background: #007acc; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .controls button:hover{ background: #005999; }
       `}</style>
         </div>
     )

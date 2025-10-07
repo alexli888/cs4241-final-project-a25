@@ -10,8 +10,8 @@ export async function connectDB() {
         const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/sliding';
         client = new MongoClient(uri);
         await client.connect();
-        db = client.db();
-        console.log('Connected to MongoDB');
+        db = client.db('FinalProj'); // Specify the FinalProj database
+        console.log('Connected to MongoDB - FinalProj database');
         return db;
     } catch (error) {
         console.error('MongoDB connection error:', error);
