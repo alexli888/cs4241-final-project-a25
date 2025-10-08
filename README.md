@@ -41,6 +41,7 @@ For logging into the project, you can just make a new account, or enter your exi
 - Integrated backend functionality with MongoDB w/ user auth
 - Developed autosolver functionality for the puzzle
 - Developed leaderboard functionality
+- Styling 
 - README updates
 - Recording
   
