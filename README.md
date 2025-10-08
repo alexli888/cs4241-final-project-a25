@@ -1,6 +1,6 @@
 # Sliding Tile Puzzle
 # Deployed at: https://cs4241-final-project-a25.onrender.com/
-We created a 4x4 sliding tile puzzle game with user authentication, auto-solver, and progress/leaderboard tracking. This game is commonly known as 'The Fifteen Puzzle', where the goal is for you to rearrange all the tiles in the order of increasing number (e.g. 1 2 3 4), while having an empty tile at the bottom right corner. This project was challenging in the sense of it is game development. We had to understand the game to a very solid level to begin developing it, and debugging throughout the process took significiant amount of time. Adding an autosolver sets our project functionality to another level, a level we believe other teams didn't reach. We also, in addition to integrating the game, took extra time to add secure authentication with hashing of passwords, as well as full backend connectivity with a MongoDB cluster. Overall, we achieved a very accessible, secure website with frontend -> backend functionality that serves the purpose of a mind game. As such, we believe that such a commitment deserves a 100%. 
+We created a 4x4 sliding tile puzzle game with user authentication, auto-solver, and progress/leaderboard tracking. This game is commonly known as 'The Fifteen Puzzle', where the goal is for you to rearrange all the tiles in the order of increasing number (e.g. 1 2 3 4), while having an empty tile at the bottom right corner. This project was challenging in the sense of it is game development. We had to understand the game to a very solid level to begin developing it, and debugging throughout the process took significiant amount of time. Adding an autosolver sets our project functionality to another level, a level we believe other teams didn't reach. We also, in addition to integrating the game, took extra time to add secure authentication with hashing of passwords, as well as full backend connectivity with a MongoDB cluster allowing for a leaderboard, and saving of all games. Overall, we achieved a very accessible, secure website with frontend -> backend functionality that serves the purpose of a mind game. As such, we believe that such a commitment deserves a 100%. 
 
 The image below highlights the game clearly: 
 
@@ -23,7 +23,7 @@ For logging into the project, you can just make a new account, or enter your exi
 
 # What accessibility features are included
 - Clear visual themes that direct users to essential tasks
-- Use of various text types (Headers, titles, paragraphs) to organize the page in accessible way
+- Use of various text types (Headers, titles, paragraphs) to organize the page in an accessible way
 - Popup explaining rules of the puzzle/how to solve it
 
 # What each group member was responsible for designing/developing
@@ -31,7 +31,7 @@ For logging into the project, you can just make a new account, or enter your exi
 - Team management
 - Defined project structure
 - Developed starter code for the client and server
-- Located inspo code for autosolver
+- Located the inspiration code for autosolver
 - Assisted in debugging deployment to Render
 - README updates
 - Recording
@@ -39,7 +39,7 @@ For logging into the project, you can just make a new account, or enter your exi
 ## Alex Li:
 - Team management
 - Integrated backend functionality with MongoDB w/ user auth
-- Developed autosolver functionality to the puzzle
+- Developed autosolver functionality for the puzzle
 - Developed leaderboard functionality
 - README updates
 - Recording
