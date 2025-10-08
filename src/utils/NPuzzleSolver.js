@@ -1,4 +1,3 @@
-// NPuzzleSolver
 // Adapted from Zachary Cava's NPuzzleSolver
 // repository: https://github.com/technogeek00/NPuzzleSolver
 

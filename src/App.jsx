@@ -268,7 +268,170 @@ function App() {
                     min-height: 400px;
                 }
                 
+                /* Modal Styles */
+                .modal-backdrop {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.7);
+                    backdrop-filter: blur(4px);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1000;
+                    animation: fadeIn 0.3s ease-out;
+                }
+                
+                .modal {
+                    background: white;
+                    border-radius: 16px;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    max-width: 500px;
+                    width: 90%;
+                    max-height: 80vh;
+                    overflow-y: auto;
+                    padding: 32px;
+                    position: relative;
+                    animation: slideIn 0.3s ease-out;
+                }
+                
+                .modal h2 {
+                    margin: 0 0 24px 0;
+                    color: #1a1a1a;
+                    font-size: 28px;
+                    font-weight: 700;
+                    text-align: center;
+                    border-bottom: 2px solid #007acc;
+                    padding-bottom: 12px;
+                }
+                
+                .rules {
+                    margin: 0 0 24px 0;
+                    padding: 0;
+                    list-style: none;
+                    counter-reset: rule-counter;
+                }
+                
+                .rules li {
+                    counter-increment: rule-counter;
+                    margin-bottom: 16px;
+                    padding: 16px;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    border-left: 4px solid #007acc;
+                    position: relative;
+                    line-height: 1.6;
+                }
+                
+                .rules li::before {
+                    content: counter(rule-counter);
+                    position: absolute;
+                    left: -12px;
+                    top: 8px;
+                    background: #007acc;
+                    color: white;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+                
+                .tips {
+                    background: linear-gradient(135deg, #e8f4fd, #d1e7dd);
+                    border: 1px solid #b3d7ff;
+                    border-radius: 12px;
+                    padding: 20px;
+                    margin-bottom: 24px;
+                    position: relative;
+                }
+                
+
+                
+                .tips p {
+                    margin: 0;
+                    color: #2c5530;
+                    font-weight: 500;
+                    line-height: 1.6;
+                }
+                
+                .btn {
+                    background: #007acc;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    padding: 12px 24px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    display: block;
+                    margin: 0 auto;
+                    min-width: 120px;
+                }
+                
+                .btn:hover {
+                    background: #005999;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 20px rgba(0, 122, 204, 0.3);
+                }
+                
+                .btn:active {
+                    transform: translateY(0);
+                }
+                
+                .btn.primary {
+                    background: linear-gradient(135deg, #007acc, #0056b3);
+                }
+                
+                .btn.primary:hover {
+                    background: linear-gradient(135deg, #005999, #004085);
+                }
+                
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+                
+                @keyframes slideIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-50px) scale(0.9);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0) scale(1);
+                    }
+                }
+                
                 @media (max-width: 600px) {
+                    .modal {
+                        padding: 24px;
+                        border-radius: 12px;
+                        width: 95%;
+                    }
+                    
+                    .modal h2 {
+                        font-size: 24px;
+                    }
+                    
+                    .rules li {
+                        padding: 12px 12px 12px 24px;
+                    }
+                    
+                    .tips {
+                        padding: 16px;
+                    }
+                    
                     .auth {
                         flex-direction: column;
                         align-items: center;
