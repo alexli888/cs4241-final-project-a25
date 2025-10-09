@@ -7,6 +7,7 @@ function App() {
     const [token, setToken] = useState(localStorage.getItem('token'))
     const [user, setUser] = useState(null)
     const [activeTab, setActiveTab] = useState('game')
+    const [authPage, setAuthPage] = useState('login') // 'login' or 'register'
     const [showRules, setShowRules] = useState(false)
 
     useEffect(() => {
@@ -83,6 +84,36 @@ function App() {
         }
     }
 
+    const LoginPage = () => (
+        <div className="auth-container">
+            <form onSubmit={login} className="auth-form">
+                <h3>Login</h3>
+                <input name="username" placeholder="username" required />
+                <input name="password" type="password" placeholder="password" required />
+                <button type="submit">Login</button>
+            </form>
+            <p className="auth-switch">
+                Don't have an account?{' '}
+                <button onClick={() => setAuthPage('register')} className="link-button">Register Here</button>
+            </p>
+        </div>
+    );
+
+    const RegisterPage = () => (
+        <div className="auth-container">
+            <form onSubmit={register} className="auth-form">
+                <h3>Create Account</h3>
+                <input name="username" placeholder="username" required />
+                <input name="password" type="password" placeholder="password" required />
+                <button type="submit">Register</button>
+            </form>
+            <p className="auth-switch">
+                Already have an account?{' '}
+                <button onClick={() => setAuthPage('login')} className="link-button">Login Here</button>
+            </p>
+        </div>
+    );
+
     return (
         <div className="app">
             <header className="topbar">
@@ -94,24 +125,10 @@ function App() {
                 </div>
             </header>
             <Rules open={showRules} onClose={() => setShowRules(false)} />
-            {!token && (
-                <div className="auth">
-                    <form onSubmit={register}>
-                        <h3>Register</h3>
-                        <input name="username" placeholder="username" />
-                        <input name="password" type="password" placeholder="password" />
-                        <button type="submit">Register</button>
-                    </form>
-                    <form onSubmit={login}>
-                        <h3>Login</h3>
-                        <input name="username" placeholder="username" />
-                        <input name="password" type="password" placeholder="password" />
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-            )}
 
-            {token && (
+            {!token ? (
+                authPage === 'login' ? <LoginPage /> : <RegisterPage />
+            ) : (
                 <div>
                     <div className="user-info">
                         <h2>Welcome {user?.username}!</h2>
@@ -177,6 +194,8 @@ function App() {
             )}
 
             <style>{`
+                :root { --primary-color: #007acc; --primary-hover: #005999; --border-color: #ddd; }
+                
                 .app {
                     max-width: 900px;
                     margin: 0 auto;
@@ -191,30 +210,17 @@ function App() {
                     justify-content: center;
                     margin: 40px 0;
                 }
-                
-                .auth form {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    padding: 20px;
-                    border: 1px solid #ddd;
-                    border-radius: 8px;
-                    background: #f9f9f9;
-                }
-                
+                .auth-container { display: flex; flex-direction: column; align-items: center; margin-top: 40px; }
+                .auth-form { display: flex; flex-direction: column; gap: 15px; padding: 30px; border: 1px solid var(--border-color); border-radius: 8px; background: white; width: 100%; max-width: 350px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+                .auth-form h3 { margin-top: 0; margin-bottom: 10px; font-size: 24px; }
+                .auth-form input { padding: 12px 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; }
+                .auth-form button { padding: 12px; background: var(--primary-color); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; }
+                .auth-switch { margin-top: 20px; }
+
                 .auth input {
                     padding: 8px 12px;
                     border: 1px solid #ccc;
                     border-radius: 4px;
-                }
-                
-                .auth button {
-                    padding: 10px;
-                    background: #007acc;
-                    color: white;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
                 }
                 
                 .auth button:hover {
