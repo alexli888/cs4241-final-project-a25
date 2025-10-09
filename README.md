@@ -46,15 +46,19 @@ For logging into the project, you can just make a new account, or enter your exi
 - Recording
   
 ## Joshua Solomon:
-- Assisted Gillermo on the login page logic  
+- Assisted Guillermo on the login page logic
+- Assisted with styling & design choices
+- Recording
 
 ## Rayyan Syed:
-- Wrote some stuff for the How to play
-- Made a button for it 
+- Implemented How to Play/Instructions pop up
+- Made and styled the button for Instructions 
 
 ## Guillermo Wiandt: 
-- Restyled and updated logic for the login page 
-
+- Implemented the register and log in pages
+- Formatteed & styling for Register and login + Game UI
+- Assisted with page deployment & debugging
+- Recording 
 
 External Sources: 
 https://github.com/technogeek00/NPuzzleSolver 
