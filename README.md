@@ -46,13 +46,14 @@ For logging into the project, you can just make a new account, or enter your exi
 - Recording
   
 ## Joshua Solomon:
-- 
+- Assisted Gillermo on the login page logic  
 
 ## Rayyan Syed:
-- 
+- Wrote some stuff for the How to play
+- Made a button for it 
 
 ## Guillermo Wiandt: 
--
+- Restyled and updated logic for the login page 
 
 
 External Sources: 
